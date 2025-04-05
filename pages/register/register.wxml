@@ -1,0 +1,80 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+  <!-- 角色选择页面 -->
+  <view class="role-selection" wx:if="{{showRoleSelection}}">
+    <view class="header">
+      <view class="title">选择您的角色</view>
+      <view class="subtitle">请选择您在平台中的身份</view>
+    </view>
+
+    <view class="roles-container">
+      <view class="role-card" bindtap="selectRole" data-role="studio">
+        <view class="role-icon">🏢</view>
+        <view class="role-title">画室</view>
+        <view class="role-desc">发布招聘信息，管理模特，查看打卡记录</view>
+      </view>
+
+      <view class="role-card" bindtap="selectRole" data-role="model">
+        <view class="role-icon">👩</view>
+        <view class="role-title">模特</view>
+        <view class="role-desc">查看招聘信息，上传个人信息，进行打卡</view>
+      </view>
+
+      <view class="role-card" bindtap="selectRole" data-role="customer">
+        <view class="role-icon">👨</view>
+        <view class="role-title">客户</view>
+        <view class="role-desc">浏览模特信息，查看画室位置</view>
+      </view>
+    </view>
+
+    <view class="tips">
+      <text class="tips-text">注意：角色选择后将无法更改，请谨慎选择</text>
+    </view>
+  </view>
+
+  <!-- 完善信息表单 -->
+  <view class="profile-form" wx:if="{{showProfileForm}}">
+    <view class="header">
+      <view class="back-btn" bindtap="backToRoleSelection">返回</view>
+      <view class="title">完善个人信息</view>
+      <view class="subtitle">请填写您的基本信息</view>
+    </view>
+
+    <view class="form-container">
+      <view class="form-group">
+        <view class="form-label">姓名</view>
+        <input class="form-input" placeholder="请输入您的姓名" value="{{name}}" bindinput="inputName" />
+      </view>
+
+      <view class="form-group">
+        <view class="form-label">手机号</view>
+        <input class="form-input" type="number" placeholder="请输入您的手机号" value="{{phone}}" bindinput="inputPhone" maxlength="11" />
+      </view>
+
+      <view class="form-group" wx:if="{{role === 'model'}}">
+        <view class="form-label">性别</view>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+            <radio value="1" checked="{{gender === '1'}}" />男
+          </label>
+          <label class="radio">
+            <radio value="2" checked="{{gender === '2'}}" />女
+          </label>
+        </radio-group>
+      </view>
+
+      <view class="role-info">
+        <view class="role-info-title">您选择的角色是：</view>
+        <view class="role-info-content">
+          <text class="role-name" wx:if="{{role === 'studio'}}">画室</text>
+          <text class="role-name" wx:if="{{role === 'model'}}">模特</text>
+          <text class="role-name" wx:if="{{role === 'customer'}}">客户</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-footer">
+      <button class="btn btn-primary" bindtap="submitProfile" loading="{{isSubmitting}}" disabled="{{isSubmitting}}">提交</button>
+    </view>
+  </view>
+</view>

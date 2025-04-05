@@ -1,0 +1,172 @@
+/* pages/login/login.wxss */
+.container {
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80rpx 0 60rpx;
+}
+
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+}
+
+.login-content {
+  flex: 1;
+  width: 100%;
+  padding: 40rpx 0;
+}
+
+.login-tips {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.tips-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+.tips-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.tips-icon {
+  color: #3B82F6;
+  font-size: 32rpx;
+  margin-right: 16rpx;
+}
+
+.tips-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+.login-footer {
+  width: 100%;
+  padding: 40rpx 0 60rpx;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+}
+
+.wechat-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.phone-login {
+  width: 100%;
+  padding: 0 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20rpx;
+}
+
+.input {
+  width: 100%;
+  height: 88rpx;
+  background: #F8F8F8;
+  border-radius: 44rpx;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.verify-code {
+  display: flex;
+  align-items: center;
+}
+
+.verify-code .input {
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.verify-code-btn {
+  width: 200rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  background: #4A90E2;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 44rpx;
+  padding: 0;
+  margin: 0;
+}
+
+.verify-code-btn[disabled] {
+  background: #ccc;
+  color: #fff;
+}
+
+.action-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.switch-login-type,
+.register-link {
+  color: #4A90E2;
+}
+
+.divider {
+  margin: 0 20rpx;
+  color: #ddd;
+}
+
+.register-link {
+  text-align: center;
+  font-size: 28rpx;
+  color: #3B82F6;
+  text-decoration: underline;
+}

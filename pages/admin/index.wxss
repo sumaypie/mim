@@ -1,0 +1,61 @@
+.admin-container {
+  padding: 20px;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #4a90e2, #357abd);
+  border-radius: 12px;
+  color: white;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.module-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.module-card:active {
+  transform: scale(0.98);
+}
+
+.module-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.module-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.module-desc {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}

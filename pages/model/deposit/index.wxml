@@ -1,0 +1,38 @@
+<!--pages/model/deposit/index.wxml-->
+<view class="container">
+  <!-- 押金状态卡片 -->
+  <view class="deposit-card">
+    <view class="deposit-status">
+      <text class="status-label">押金状态</text>
+      <text class="status-value {{hasDeposit ? 'active' : ''}}">{{hasDeposit ? '已缴纳' : '未缴纳'}}</text>
+    </view>
+    <view class="deposit-amount">
+      <text class="amount-label">押金金额</text>
+      <text class="amount-value">¥{{depositAmount || '0.00'}}</text>
+    </view>
+    <button wx:if="{{!hasDeposit}}" class="deposit-button" bindtap="handleDeposit">缴纳押金</button>
+  </view>
+
+  <!-- 交易记录列表 -->
+  <view class="transaction-list">
+    <view class="list-header">
+      <text>交易记录</text>
+    </view>
+    <view class="list-content">
+      <block wx:if="{{transactions.length > 0}}">
+        <view class="transaction-item" wx:for="{{transactions}}" wx:key="id">
+          <view class="transaction-info">
+            <text class="transaction-type">{{item.type}}</text>
+            <text class="transaction-time">{{item.time}}</text>
+          </view>
+          <view class="transaction-amount {{item.type === '退还' ? 'refund' : ''}}">
+            {{item.type === '退还' ? '+' : '-'}}¥{{item.amount}}
+          </view>
+        </view>
+      </block>
+      <view wx:else class="empty-list">
+        <text>暂无交易记录</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,31 @@
+<!--pages/map/index.wxml-->
+<view class="container">
+  <!-- 地图组件 -->
+  <map
+    id="studioMap"
+    class="studio-map"
+    latitude="{{latitude}}"
+    longitude="{{longitude}}"
+    markers="{{markers}}"
+    show-location
+  ></map>
+
+  <!-- 位置信息卡片 -->
+  <view class="location-card">
+    <view class="studio-name">{{studioInfo.name || '画室名称'}}</view>
+    <view class="address-container">
+      <view class="address">{{studioInfo.address || '画室详细地址'}}</view>
+      <view class="distance">{{studioInfo.distance || '计算距离中...'}}</view>
+    </view>
+    <view class="contact-info">
+      <text class="contact-label">联系电话：</text>
+      <text class="contact-value">{{studioInfo.phone || '暂无'}}</text>
+    </view>
+    
+    <!-- 导航按钮 -->
+    <button class="nav-button" bindtap="openLocation">
+      <image class="nav-icon" src="/static/images/navigation.svg" mode="aspectFit"></image>
+      <text>导航到这里</text>
+    </button>
+  </view>
+</view>

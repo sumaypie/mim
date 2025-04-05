@@ -1,0 +1,51 @@
+<view class="recruitment-container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索画室名称" bindinput="onSearchInput"/>
+    <icon class="search-icon" type="search" size="16"></icon>
+  </view>
+
+  <!-- 筛选条件 -->
+  <view class="filter-section">
+    <picker class="filter-item" mode="region" bindchange="onRegionChange" value="{{region}}">
+      <view class="filter-text">{{region[1]}} {{region[2]}}</view>
+    </picker>
+    <picker class="filter-item" range="{{salaryRanges}}" bindchange="onSalaryChange">
+      <view class="filter-text">{{salaryRanges[salaryIndex]}}</view>
+    </picker>
+  </view>
+
+  <!-- 招聘列表 -->
+  <scroll-view class="job-list" scroll-y="true">
+    <view class="job-item" wx:for="{{jobs}}" wx:key="id" bindtap="viewJobDetail" data-id="{{item.id}}">
+      <view class="job-header">
+        <text class="studio-name">{{item.studioName}}</text>
+        <text class="salary">¥{{item.salary}}/天</text>
+      </view>
+      <view class="job-info">
+        <view class="info-row">
+          <text class="label">工作时间：</text>
+          <text class="value">{{item.workTime}}</text>
+        </view>
+        <view class="info-row">
+          <text class="label">工作地点：</text>
+          <text class="value">{{item.location}}</text>
+        </view>
+        <view class="info-row">
+          <text class="label">要求：</text>
+          <text class="value">{{item.requirements}}</text>
+        </view>
+      </view>
+      <view class="job-footer">
+        <text class="post-time">{{item.postTime}}</text>
+        <button class="apply-btn" catchtap="applyJob" data-id="{{item.id}}">立即应聘</button>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 无数据提示 -->
+  <view class="empty-tip" wx:if="{{jobs.length === 0}}">
+    <image class="empty-icon" src="/static/images/empty.svg" mode="aspectFit"></image>
+    <text>暂无招聘信息</text>
+  </view>
+</view>

@@ -1,0 +1,47 @@
+<!--pages/profile/profile.wxml-->
+<view class="profile-container">
+  <!-- 头像上传区域 -->
+  <view class="avatar-section">
+    <image class="avatar" src="{{userInfo.avatar || '/static/images/user.png'}}" mode="aspectFill" bindtap="chooseAvatar"></image>
+    <text class="upload-text">点击更换头像</text>
+  </view>
+
+  <!-- 基本信息表单 -->
+  <view class="info-section">
+    <view class="section-title">基本信息</view>
+    <view class="form-item">
+      <text class="label">昵称</text>
+      <input class="input" value="{{userInfo.nickname}}" placeholder="请输入昵称" bindinput="onNicknameInput"/>
+    </view>
+    <view class="form-item">
+      <text class="label">性别</text>
+      <radio-group class="radio-group" bindchange="onGenderChange">
+        <label class="radio">
+          <radio value="male" checked="{{userInfo.gender === 'male'}}"/>男
+        </label>
+        <label class="radio">
+          <radio value="female" checked="{{userInfo.gender === 'female'}}"/>女
+        </label>
+      </radio-group>
+    </view>
+    <view class="form-item">
+      <text class="label">年龄</text>
+      <input class="input" type="number" value="{{userInfo.age}}" placeholder="请输入年龄" bindinput="onAgeInput"/>
+    </view>
+    <view class="form-item">
+      <text class="label">电话</text>
+      <input class="input" type="number" value="{{userInfo.phone}}" placeholder="请输入联系电话" bindinput="onPhoneInput"/>
+    </view>
+  </view>
+
+  <!-- 个人简介 -->
+  <view class="intro-section">
+    <view class="section-title">个人简介</view>
+    <textarea class="intro-textarea" value="{{userInfo.introduction}}" placeholder="请输入个人简介" bindinput="onIntroInput"></textarea>
+  </view>
+
+  <!-- 保存按钮 -->
+  <view class="button-section">
+    <button class="save-btn" type="primary" loading="{{isLoading}}" bindtap="saveProfile">保存修改</button>
+  </view>
+</view>

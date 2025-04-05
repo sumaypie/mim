@@ -1,0 +1,68 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <view class="login-header">
+    <image class="logo" src="/static/images/logo.svg" mode="aspectFit"></image>
+    <view class="title">欢迎使用画室模特管理</view>
+    <view class="subtitle">请输入手机号登录</view>
+  </view>
+
+  <view class="login-content">
+    <view class="login-tips">
+      <view class="tips-title">登录后您可以：</view>
+      <view class="tips-item">
+        <text class="tips-icon">✓</text>
+        <text class="tips-text">画室可发布招聘信息管理模特</text>
+      </view>
+      <view class="tips-item">
+        <text class="tips-icon">✓</text>
+        <text class="tips-text">模特可查看招聘信息进行打卡</text>
+      </view>
+      <view class="tips-item">
+        <text class="tips-icon">✓</text>
+        <text class="tips-text">客户可浏览模特信息查看画室</text>
+      </view>
+    </view>
+
+    <view class="phone-login">
+      <view class="input-group">
+        <input 
+          type="number" 
+          class="input" 
+          placeholder="请输入手机号" 
+          bindinput="inputPhone"
+          value="{{phone}}"
+        />
+      </view>
+      <view class="input-group verify-code">
+        <input 
+          type="number" 
+          class="input" 
+          placeholder="请输入验证码" 
+          bindinput="inputVerifyCode"
+          value="{{verifyCode}}"
+        />
+        <button 
+          class="verify-code-btn" 
+          bindtap="getVerifyCode"
+          disabled="{{countDown > 0}}"
+        >
+          {{countDown > 0 ? countDown + 's' : '获取验证码'}}
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view class="login-footer">
+    <button 
+      class="btn btn-primary login-btn" 
+      bindtap="loginByPhone" 
+      loading="{{isLoading}}"
+      disabled="{{isLoading}}"
+    >
+      手机号登录
+    </button>
+    <view class="action-links">
+      <text class="register-link" bindtap="goToRegister">立即注册</text>
+    </view>
+  </view>
+</view>

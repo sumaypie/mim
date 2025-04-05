@@ -1,0 +1,42 @@
+<view class="profile-container">
+  <!-- 头像区域 -->
+  <view class="avatar-section">
+    <image class="avatar" src="{{userInfo.avatarUrl || '/static/images/default-avatar.png'}}" mode="aspectFill"></image>
+    <text class="edit-avatar" bindtap="chooseAvatar">更换头像</text>
+  </view>
+
+  <!-- 基本信息区域 -->
+  <view class="info-section">
+    <view class="info-item">
+      <text class="label">姓名</text>
+      <input class="value" value="{{userInfo.name}}" placeholder="请输入姓名" bindinput="onNameInput"/>
+    </view>
+    <view class="info-item">
+      <text class="label">性别</text>
+      <picker class="value" range="{{genderOptions}}" value="{{genderIndex}}" bindchange="onGenderChange">
+        <view>{{genderOptions[genderIndex]}}</view>
+      </picker>
+    </view>
+    <view class="info-item">
+      <text class="label">年龄</text>
+      <input class="value" type="number" value="{{userInfo.age}}" placeholder="请输入年龄" bindinput="onAgeInput"/>
+    </view>
+    <view class="info-item">
+      <text class="label">身高</text>
+      <input class="value" type="digit" value="{{userInfo.height}}" placeholder="请输入身高(cm)" bindinput="onHeightInput"/>
+    </view>
+    <view class="info-item">
+      <text class="label">体重</text>
+      <input class="value" type="digit" value="{{userInfo.weight}}" placeholder="请输入体重(kg)" bindinput="onWeightInput"/>
+    </view>
+  </view>
+
+  <!-- 个人简介 -->
+  <view class="bio-section">
+    <text class="section-title">个人简介</text>
+    <textarea class="bio-input" value="{{userInfo.bio}}" placeholder="请输入个人简介" bindinput="onBioInput"></textarea>
+  </view>
+
+  <!-- 保存按钮 -->
+  <button class="save-btn" type="primary" bindtap="saveProfile">保存修改</button>
+</view>

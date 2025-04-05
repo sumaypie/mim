@@ -1,0 +1,45 @@
+<!--pages/model/index/index.wxml-->
+<view class="container">
+  <!-- 个人信息卡片 -->
+  <view class="profile-card">
+    <view class="avatar-container">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/static/images/user.png'}}" mode="aspectFill"></image>
+    </view>
+    <view class="info-container">
+      <view class="name">{{userInfo.nickName || '未登录'}}</view>
+      <view class="status">{{userInfo.status || '暂无状态'}}</view>
+    </view>
+  </view>
+
+  <!-- 状态卡片 -->
+  <view class="status-card">
+    <view class="status-item">
+      <view class="status-title">今日打卡</view>
+      <view class="status-value {{todayCheckin ? 'checked' : ''}}">{{todayCheckin ? '已打卡' : '未打卡'}}</view>
+    </view>
+    <view class="status-item">
+      <view class="status-title">押金状态</view>
+      <view class="status-value {{hasDeposit ? 'active' : ''}}">{{hasDeposit ? '已缴纳' : '未缴纳'}}</view>
+    </view>
+  </view>
+
+  <!-- 功能按钮组 -->
+  <view class="function-group">
+    <navigator url="/pages/model/checkin/index" class="function-item">
+      <image class="function-icon" src="/static/images/checkin.svg" mode="aspectFit"></image>
+      <view class="function-text">打卡</view>
+    </navigator>
+    <navigator url="/pages/model/deposit/index" class="function-item">
+      <image class="function-icon" src="/static/images/deposit.svg" mode="aspectFit"></image>
+      <view class="function-text">押金管理</view>
+    </navigator>
+    <navigator url="/pages/model/recruitment/index" class="function-item">
+      <image class="function-icon" src="/static/images/recruitment.svg" mode="aspectFit"></image>
+      <view class="function-text">招聘信息</view>
+    </navigator>
+    <navigator url="/pages/model/profile/index" class="function-item">
+      <image class="function-icon" src="/static/images/profile.svg" mode="aspectFit"></image>
+      <view class="function-text">个人资料</view>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+<!--pages/model/checkin/index.wxml-->
+<view class="container">
+  <!-- 地图组件 -->
+  <view class="map-container">
+    <map
+      id="myMap"
+      class="map"
+      latitude="{{latitude}}"
+      longitude="{{longitude}}"
+      scale="16"
+      show-location
+    ></map>
+  </view>
+
+  <!-- 打卡状态卡片 -->
+  <view class="checkin-card">
+    <view class="checkin-status">
+      <text class="status-label">今日打卡状态</text>
+      <text class="status-value {{todayCheckin ? 'checked' : ''}}">{{todayCheckin ? '已打卡' : '未打卡'}}</text>
+    </view>
+    <view class="location-info">
+      <text class="location-label">当前位置</text>
+      <text class="location-value">{{address || '定位中...'}}</text>
+    </view>
+    <button class="checkin-button {{todayCheckin ? 'disabled' : ''}}" bindtap="handleCheckin" disabled="{{todayCheckin}}">{{todayCheckin ? '今日已打卡' : '立即打卡'}}</button>
+  </view>
+
+  <!-- 打卡记录列表 -->
+  <view class="checkin-list">
+    <view class="list-header">
+      <text>打卡记录</text>
+    </view>
+    <view class="list-content">
+      <block wx:if="{{checkinRecords.length > 0}}">
+        <view class="checkin-item" wx:for="{{checkinRecords}}" wx:key="id">
+          <view class="checkin-info">
+            <text class="checkin-date">{{item.date}}</text>
+            <text class="checkin-time">{{item.time}}</text>
+          </view>
+          <view class="checkin-location">{{item.location}}</view>
+        </view>
+      </block>
+      <view wx:else class="empty-list">
+        <text>暂无打卡记录</text>
+      </view>
+    </view>
+  </view>
+</view>

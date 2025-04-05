@@ -1,0 +1,68 @@
+<!--pages/post-job/post-job.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="back-btn" bindtap="onBack">返回</text>
+    <text class="title">发布招聘</text>
+    <text class="subtitle">填写招聘信息，找到合适的模特</text>
+  </view>
+
+  <view class="form-container">
+    <view class="form-group">
+      <text class="form-label">招聘标题</text>
+      <input class="form-input" placeholder="请输入招聘标题" value="{{formData.title}}" bindinput="onInputChange" data-field="title" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">薪资待遇</text>
+      <input class="form-input" type="digit" placeholder="请输入薪资金额" value="{{formData.salary}}" bindinput="onInputChange" data-field="salary" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">工作时长</text>
+      <input class="form-input" type="digit" placeholder="请输入工作时长（小时）" value="{{formData.duration}}" bindinput="onInputChange" data-field="duration" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">工作日期</text>
+      <picker mode="date" value="{{formData.date}}" start="{{minDate}}" bindchange="onDateChange">
+        <view class="picker-input">
+          <text wx:if="{{formData.date}}">{{formData.date}}</text>
+          <text wx:else class="picker-placeholder">请选择工作日期</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">工作时间</text>
+      <picker mode="time" value="{{formData.time}}" bindchange="onTimeChange">
+        <view class="picker-input">
+          <text wx:if="{{formData.time}}">{{formData.time}}</text>
+          <text wx:else class="picker-placeholder">请选择工作时间</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">工作地点</text>
+      <view class="location-input">
+        <text class="location-text">{{formData.location || '请选择工作地点'}}</text>
+        <text class="location-btn" bindtap="onChooseLocation">选择位置</text>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">工作要求</text>
+      <textarea class="form-textarea" placeholder="请输入工作要求" value="{{formData.requirements}}" bindinput="onInputChange" data-field="requirements" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">补充说明</text>
+      <textarea class="form-textarea" placeholder="请输入补充说明" value="{{formData.description}}" bindinput="onInputChange" data-field="description" />
+    </view>
+  </view>
+
+  <view class="form-footer">
+    <button class="btn btn-primary" bindtap="onSubmit">发布招聘</button>
+    <view class="tips">发布后将通过系统审核，请确保信息真实有效</view>
+  </view>
+</view>

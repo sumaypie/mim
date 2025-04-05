@@ -1,0 +1,64 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="header">
+    <image class="logo" src="/static/images/logo.svg" mode="aspectFit"></image>
+    <view class="title">画室模特管理</view>
+    <view class="subtitle">连接画室与模特的桥梁</view>
+  </view>
+
+  <view class="content">
+    <view class="card intro">
+      <view class="card-title">平台介绍</view>
+      <view class="card-content">
+        <view class="intro-item">
+          <view class="intro-icon">🏢</view>
+          <view class="intro-text">
+            <view class="intro-title">画室</view>
+            <view class="intro-desc">发布招聘信息，管理模特，查看打卡记录</view>
+          </view>
+        </view>
+        <view class="intro-item">
+          <view class="intro-icon">👩</view>
+          <view class="intro-text">
+            <view class="intro-title">模特</view>
+            <view class="intro-desc">查看招聘信息，上传个人信息，进行打卡</view>
+          </view>
+        </view>
+        <view class="intro-item">
+          <view class="intro-icon">👨</view>
+          <view class="intro-text">
+            <view class="intro-title">客户</view>
+            <view class="intro-desc">浏览模特信息，查看画室位置</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="card features">
+      <view class="card-title">核心功能</view>
+      <view class="card-content">
+        <view class="feature-item">
+          <view class="feature-icon">📢</view>
+          <view class="feature-text">招聘发布</view>
+        </view>
+        <view class="feature-item">
+          <view class="feature-icon">📝</view>
+          <view class="feature-text">打卡管理</view>
+        </view>
+        <view class="feature-item">
+          <view class="feature-icon">💰</view>
+          <view class="feature-text">押金管理</view>
+        </view>
+        <view class="feature-item">
+          <view class="feature-icon">🗺️</view>
+          <view class="feature-text">位置导航</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer" wx:if="{{!isLogin}}">
+    <button class="btn btn-primary" bindtap="goToLogin">登录</button>
+    <button class="btn btn-default" bindtap="goToRegister">注册</button>
+  </view>
+</view>

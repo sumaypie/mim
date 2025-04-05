@@ -1,0 +1,66 @@
+<view class="job-detail-container">
+  <!-- 头部信息 -->
+  <view class="header-section">
+    <view class="studio-info">
+      <text class="studio-name">{{jobInfo.studioName}}</text>
+      <text class="salary">¥{{jobInfo.salary}}/天</text>
+    </view>
+    <view class="tags">
+      <text class="tag" wx:for="{{jobInfo.tags}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 详细信息 -->
+  <view class="info-section">
+    <view class="info-item">
+      <text class="label">工作时间</text>
+      <text class="value">{{jobInfo.workTime}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">工作地点</text>
+      <text class="value">{{jobInfo.location}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">工作要求</text>
+      <text class="value">{{jobInfo.requirements}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">薪资福利</text>
+      <text class="value">{{jobInfo.benefits}}</text>
+    </view>
+  </view>
+
+  <!-- 画室简介 -->
+  <view class="studio-section">
+    <text class="section-title">画室简介</text>
+    <text class="studio-desc">{{jobInfo.studioDescription}}</text>
+    <view class="studio-images">
+      <image wx:for="{{jobInfo.studioImages}}" wx:key="index" 
+             src="{{item}}" mode="aspectFill" 
+             bindtap="previewImage" data-url="{{item}}"></image>
+    </view>
+  </view>
+
+  <!-- 位置信息 -->
+  <view class="location-section">
+    <text class="section-title">画室位置</text>
+    <map class="location-map" 
+         latitude="{{jobInfo.latitude}}" 
+         longitude="{{jobInfo.longitude}}" 
+         markers="{{markers}}" 
+         show-location></map>
+    <view class="address-info" bindtap="openLocation">
+      <text class="address">{{jobInfo.address}}</text>
+      <text class="distance">{{jobInfo.distance}}</text>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="footer-bar">
+    <button class="contact-btn" bindtap="contactStudio">
+      <image src="/static/images/contact.svg"></image>
+      <text>联系画室</text>
+    </button>
+    <button class="apply-btn" type="primary" bindtap="applyJob">立即应聘</button>
+  </view>
+</view>

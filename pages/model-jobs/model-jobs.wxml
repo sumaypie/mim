@@ -1,0 +1,47 @@
+<!--pages/model-jobs/model-jobs.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="search-box">
+      <input class="search-input" placeholder="搜索招聘信息" bindinput="onSearchInput" />
+    </view>
+    <view class="post-btn" bindtap="onPostJob">发布招聘</view>
+  </view>
+
+  <view class="filter-bar">
+    <view class="filter-item {{currentFilter === 'all' ? 'active' : ''}}" bindtap="onFilterChange" data-type="all">全部</view>
+    <view class="filter-item {{currentFilter === 'latest' ? 'active' : ''}}" bindtap="onFilterChange" data-type="latest">最新</view>
+    <view class="filter-item {{currentFilter === 'salary' ? 'active' : ''}}" bindtap="onFilterChange" data-type="salary">薪资</view>
+    <view class="filter-item {{currentFilter === 'distance' ? 'active' : ''}}" bindtap="onFilterChange" data-type="distance">距离</view>
+  </view>
+
+  <scroll-view class="job-list" scroll-y="true" bindscrolltolower="onLoadMore">
+    <block wx:if="{{jobs.length > 0}}">
+      <view class="job-card" wx:for="{{jobs}}" wx:key="id" bindtap="onJobDetail" data-id="{{item.id}}">
+        <view class="job-header">
+          <text class="job-title">{{item.title}}</text>
+          <text class="job-salary">{{item.salary}}</text>
+        </view>
+        <view class="job-info">
+          <view class="info-item">
+            <text class="info-icon">📍</text>
+            <text>{{item.location}}</text>
+          </view>
+          <view class="info-item">
+            <text class="info-icon">⏰</text>
+            <text>{{item.duration}}</text>
+          </view>
+          <view class="info-item">
+            <text class="info-icon">📅</text>
+            <text>{{item.date}}</text>
+          </view>
+        </view>
+        <view class="studio-info">
+          <image class="studio-avatar" src="{{item.studio.avatar}}" mode="aspectFill"></image>
+          <text class="studio-name">{{item.studio.name}}</text>
+          <text class="job-status">{{item.status}}</text>
+        </view>
+      </view>
+    </block>
+    <view class="empty-tip" wx:else>暂无招聘信息</view>
+  </scroll-view>
+</view>

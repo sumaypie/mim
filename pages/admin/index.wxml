@@ -1,0 +1,50 @@
+<view class="admin-container">
+  <view class="header">
+    <text class="title">超级管理员控制台</text>
+    <text class="subtitle">欢迎回来，管理员</text>
+  </view>
+
+  <view class="module-grid">
+    <!-- 模特管理模块 -->
+    <view class="module-card" bindtap="navigateTo" data-path="/pages/model/index/index">
+      <view class="module-icon">👩</view>
+      <view class="module-title">模特管理</view>
+      <view class="module-desc">查看和管理所有模特信息</view>
+    </view>
+
+    <!-- 画室管理模块 -->
+    <view class="module-card" bindtap="navigateTo" data-path="/pages/studio/index/index">
+      <view class="module-icon">🏢</view>
+      <view class="module-title">画室管理</view>
+      <view class="module-desc">管理画室信息和审核</view>
+    </view>
+
+    <!-- 招聘管理模块 -->
+    <view class="module-card" bindtap="navigateTo" data-path="/pages/model-jobs/model-jobs">
+      <view class="module-icon">📋</view>
+      <view class="module-title">招聘管理</view>
+      <view class="module-desc">查看和管理招聘信息</view>
+    </view>
+
+    <!-- 打卡记录模块 -->
+    <view class="module-card" bindtap="navigateTo" data-path="/pages/model/checkin/index">
+      <view class="module-icon">📅</view>
+      <view class="module-title">打卡记录</view>
+      <view class="module-desc">查看所有打卡记录</view>
+    </view>
+
+    <!-- 押金管理模块 -->
+    <view class="module-card" bindtap="navigateTo" data-path="/pages/model/deposit/index">
+      <view class="module-icon">💰</view>
+      <view class="module-title">押金管理</view>
+      <view class="module-desc">管理押金和退款</view>
+    </view>
+
+    <!-- 系统设置模块 -->
+    <view class="module-card" bindtap="navigateTo" data-path="/pages/profile/profile">
+      <view class="module-icon">⚙️</view>
+      <view class="module-title">系统设置</view>
+      <view class="module-desc">管理系统配置</view>
+    </view>
+  </view>
+</view>
